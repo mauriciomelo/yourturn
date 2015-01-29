@@ -1,0 +1,96 @@
+/* app css stylesheet */
+
+body {
+  background-color: #8e44ad;
+  color: white;
+}
+
+#plus-one {
+  color: white;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+#plus-one-container {
+  font-size: 0;
+  margin: 0;
+  height: 100px;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  
+}
+
+#progress div {
+  //border-color: red;
+}
+
+
+#input-container {
+  height: 500px;
+  width: 500px;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+}
+
+#min,
+#sec {
+  background: none;
+  border: none;
+  width: 200px;
+  outline: none;
+
+}
+
+#timer {
+  margin: 0 auto;
+  background-color: #552a67;
+  width: 500px;
+  height: 500px;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+
+#controls {
+  text-align: center;
+  padding: 10px;
+}
+#controls .control {
+  color: white;
+}
+
+#timer,
+#timer input {
+  font-size: 140px;
+  color: white;
+}
+#min {
+  text-align: right;
+}
+
+#sec {
+  text-align: left;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+     margin: 0; 
+}
+
+@-webkit-keyframes alert_animation {
+  from { 
+    opacity:1;
+  }
+  to { 
+    opacity:0; 
+  }
+}
+
+.alerting {
+  -webkit-animation: .4s alert_animation ease infinite; 
+}
