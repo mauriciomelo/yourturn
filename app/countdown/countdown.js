@@ -50,7 +50,6 @@ angular.module('myApp.countdown', ['ngRoute'])
     }
     
     $scope.progress = getProgress() || 0; 
-
   });
   
   $scope.isPlaying = function() {

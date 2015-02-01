@@ -110,7 +110,6 @@ describe('CountdownCtrl', function() {
     }));
 
     it("should make a turn pair correctly with 5 people",inject(function($controller) {
-
     }));
 
   });
