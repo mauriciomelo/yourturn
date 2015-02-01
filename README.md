@@ -79,7 +79,7 @@ app/                    --> all of the source files for the application
   countdown/                --> the countdown view template and logic
     countdown.html            --> the partial template
     countdown.js              --> the controller logic
-    countdown.js         --> tests of the controller
+    countdown_test.js         --> tests of the controller
   app.js                --> main application module
   index.html            --> app layout file (the main html template file of the app)
   index-async.html      --> just like index.html, but loads js files asynchronously
