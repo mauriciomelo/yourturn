@@ -78,7 +78,7 @@ describe('CountdownCtrl', function() {
     beforeEach(function() {
       $scope =$rootScope.$new();
       controller = $controller('CountdownCtrl', { $scope: $scope, $interval: $interval });
-      $scope.setPeople(["Jessica", "Mauricio","Renata"]);
+      $scope.people = ["Jessica", "Mauricio","Renata"];
     });
 
     it("should get a list of people for dojo with size 3", inject(function($controller)  {
@@ -110,7 +110,7 @@ describe('CountdownCtrl', function() {
     }));
 
     it("should make a turn pair correctly with 5 people",inject(function($controller) {
-      
+
     }));
 
   });

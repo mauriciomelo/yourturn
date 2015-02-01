@@ -95,12 +95,8 @@ angular.module('myApp.countdown', ['ngRoute'])
   $scope.people = undefined;
   $scope.pair = undefined;
   var copilot = 1;
-  $scope.setPeople = function(peopleList) {
-    $scope.people = peopleList;
-  }
 
   $scope.setPair = function(){
-    console.log(copilot);
     if($scope.pair != undefined){
       var newDriver = $scope.pair[1];
       $scope.pair = [newDriver,$scope.people[copilot]]
