@@ -8,8 +8,8 @@
   </div>
   
   <div id="controls">
-    <md-button class="control" data-ng-click="start()"><img src="bower_components/material-design-icons/av/1x_web/ic_play_arrow_white_48dp.png"></img></md-button>
-    <md-button  class="control" data-ng-click="stop()"><img src="bower_components/material-design-icons/av/1x_web/ic_stop_white_48dp.png"></img></md-button>
+    <md-button class="control" ng-hide="isPlaying()" data-ng-click="start()"><img src="bower_components/material-design-icons/av/1x_web/ic_play_arrow_white_48dp.png"></img></md-button>
+    <md-button  class="control" ng-show="isPlaying()" data-ng-click="stop()"><img src="bower_components/material-design-icons/av/1x_web/ic_stop_white_48dp.png"></img></md-button>
     <md-button class="control"  data-ng-click="reset()"><img src="bower_components/material-design-icons/av/1x_web/ic_replay_white_48dp.png"></img></md-button>
   </div>
   
