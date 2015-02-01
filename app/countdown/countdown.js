@@ -53,9 +53,12 @@ angular.module('myApp.countdown', ['ngRoute'])
 
   });
   
+  $scope.isPlaying = function() {
+    return angular.isDefined(interval);
+  }
 
   $scope.start = function() {
-    if(!angular.isDefined(interval)) {
+    if(!$scope.isPlaying()) {
       interval = $interval(function(){
         if($scope.timer.sec > 0 ) {
           $scope.timer.sec -= 1;
@@ -71,7 +74,7 @@ angular.module('myApp.countdown', ['ngRoute'])
   }
 
   $scope.stop = function() {
-    if (angular.isDefined(interval)) {
+    if ($scope.isPlaying()) {
       $interval.cancel(interval);
       interval = undefined;
     }

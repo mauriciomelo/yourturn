@@ -58,6 +58,17 @@ describe('CountdownCtrl', function() {
       expect($scope.timer.sec).toBe(59);
     }));
     
+    it('should be playing when started', inject(function($controller) {
+      $scope.start();
+      expect($scope.isPlaying()).toBe(true);
+    }));
+    
+    it('should not be playing when stoped', inject(function($controller) {
+      $scope.start();
+      $scope.stop();
+      expect($scope.isPlaying()).toBe(false);
+    }));
+    
     
   });
 
