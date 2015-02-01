@@ -37,6 +37,8 @@ angular.module('myApp.countdown', ['ngRoute'])
   }
   
   $scope.$watchCollection("timer", function(){
+    $scope.title = $scope.timer.min + ":" + $scope.timer.sec;
+    $("title").text($scope.title);
     if (!angular.isDefined(interval)) {
       $scope.default = angular.copy($scope.timer);
     }
