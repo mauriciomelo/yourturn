@@ -37,6 +37,8 @@ angular.module('myApp.countdown', ['ngRoute'])
   }
   
   $scope.$watchCollection("timer", function(){
+    $scope.title = $scope.timer.min + ":" + $scope.timer.sec;
+    $("title").text($scope.title);
     if (!angular.isDefined(interval)) {
       $scope.default = angular.copy($scope.timer);
     }
@@ -50,12 +52,14 @@ angular.module('myApp.countdown', ['ngRoute'])
     }
     
     $scope.progress = getProgress() || 0; 
-    
   });
   
+  $scope.isPlaying = function() {
+    return angular.isDefined(interval);
+  }
 
   $scope.start = function() {
-    if(!angular.isDefined(interval)) {
+    if(!$scope.isPlaying()) {
       interval = $interval(function(){
         if($scope.timer.sec > 0 ) {
           $scope.timer.sec -= 1;
@@ -71,7 +75,7 @@ angular.module('myApp.countdown', ['ngRoute'])
   }
 
   $scope.stop = function() {
-    if (angular.isDefined(interval)) {
+    if ($scope.isPlaying()) {
       $interval.cancel(interval);
       interval = undefined;
     }
@@ -87,5 +91,25 @@ angular.module('myApp.countdown', ['ngRoute'])
   $scope.plusOne = function() {
     $scope.timer.min += 1; 
   };
+
+  //Manager Pair
+  $scope.people = undefined;
+  $scope.pair = undefined;
+  var copilot = 1;
+
+  $scope.setPair = function(){
+    if($scope.pair != undefined){
+      var newDriver = $scope.pair[1];
+      $scope.pair = [newDriver,$scope.people[copilot]]
+    }
+    else{
+      $scope.pair = [$scope.people[0],$scope.people[1]] 
+    }
+    //no people
+    copilot++;
+    if(copilot == $scope.people.length){
+     copilot = 0;
+    }
+  }
 
 });
