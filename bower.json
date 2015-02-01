@@ -11,7 +11,8 @@
     "angular-loader": "1.4.x",
     "angular-mocks": "~1.4.x",
     "html5-boilerplate": "~4.3.0",
-    "angular-material": "0.7.0"
+    "angular-material": "0.7.0",
+    "material-design-icons": "1.0.1"
   },
   "resolutions": {
     "angular": "1.4.x"
