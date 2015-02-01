@@ -60,4 +60,32 @@ describe('CountdownCtrl', function() {
     
     
   });
+
+  describe("Manager Pair functionality",function(){
+    var $scope, controller;
+
+    beforeEach(function() {
+      $scope =$rootScope.$new();
+      controller = $controller('CountdownCtrl', { $scope: $scope, $interval: $interval });
+      $scope.setPeople(["Jessica", "Renata","Mauricio"]);
+    });
+
+    it("should get a list of people for dojo with size 3", inject(function($controller)  {
+      expect($scope.people.length).toBe(3);
+    }));
+
+    it("should set the pair",inject(function($controller)  {
+        $scope.setPair(["Jessica","Mauricio"]);
+        expect($scope.pair).toEqual(["Jessica","Mauricio"]);
+    }));
+
+    it("should not set a pair equal to previous pair",inject(function($controller) {
+        $scope.setPair(["Jessica","Mauricio"]);
+        expect(
+          function(){$scope.setPair(["Jessica","Mauricio"])})
+        .toThrow();
+    }));
+
+  });
+
 });

@@ -50,7 +50,7 @@ angular.module('myApp.countdown', ['ngRoute'])
     }
     
     $scope.progress = getProgress() || 0; 
-    
+
   });
   
 
@@ -87,5 +87,21 @@ angular.module('myApp.countdown', ['ngRoute'])
   $scope.plusOne = function() {
     $scope.timer.min += 1; 
   };
+
+  //Manager Pair
+  $scope.people = undefined;
+  $scope.pair = undefined;
+  $scope.setPeople = function(peopleList) {
+    $scope.people = peopleList;
+  }
+
+  $scope.setPair = function(pair){
+    if($scope.pair == undefined){
+      if(pair[0] != $scope.pair[0] && pair[1] != $scope.pair[1]){
+        throw new Error("The new pair can't be the same from the previous.");
+      }
+    }
+    $scope.pair = pair;
+  }
 
 });
