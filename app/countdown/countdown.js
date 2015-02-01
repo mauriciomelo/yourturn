@@ -52,7 +52,6 @@ angular.module('myApp.countdown', ['ngRoute'])
     }
     
     $scope.progress = getProgress() || 0; 
-    
   });
   
   $scope.isPlaying = function() {
@@ -92,5 +91,25 @@ angular.module('myApp.countdown', ['ngRoute'])
   $scope.plusOne = function() {
     $scope.timer.min += 1; 
   };
+
+  //Manager Pair
+  $scope.people = undefined;
+  $scope.pair = undefined;
+  var copilot = 1;
+
+  $scope.setPair = function(){
+    if($scope.pair != undefined){
+      var newDriver = $scope.pair[1];
+      $scope.pair = [newDriver,$scope.people[copilot]]
+    }
+    else{
+      $scope.pair = [$scope.people[0],$scope.people[1]] 
+    }
+    //no people
+    copilot++;
+    if(copilot == $scope.people.length){
+     copilot = 0;
+    }
+  }
 
 });
