@@ -94,17 +94,25 @@ angular.module('myApp.countdown', ['ngRoute'])
   //Manager Pair
   $scope.people = undefined;
   $scope.pair = undefined;
+  var copilot = 1;
   $scope.setPeople = function(peopleList) {
     $scope.people = peopleList;
   }
 
-  $scope.setPair = function(pair){
-    if($scope.pair == undefined){
-      if(pair[0] != $scope.pair[0] && pair[1] != $scope.pair[1]){
-        throw new Error("The new pair can't be the same from the previous.");
-      }
+  $scope.setPair = function(){
+    console.log(copilot);
+    if($scope.pair != undefined){
+      var newDriver = $scope.pair[1];
+      $scope.pair = [newDriver,$scope.people[copilot]]
     }
-    $scope.pair = pair;
+    else{
+      $scope.pair = [$scope.people[0],$scope.people[1]] 
+    }
+    //no people
+    copilot++;
+    if(copilot == $scope.people.length){
+     copilot = 0;
+    }
   }
 
 });
